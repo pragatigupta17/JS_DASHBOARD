@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box;
 }
 
@@ -76,7 +76,6 @@ button:hover {
     text-decoration: underline;
 }
 
-/* Media Queries */
 @media (max-width: 600px) {
     .login_form {
         width: 90%;
@@ -86,4 +85,4 @@ button:hover {
     button {
         padding: 12px;
     }
-}
+} */

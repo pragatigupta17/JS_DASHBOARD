@@ -1,30 +1,147 @@
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-image: url(./dashbord_image.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+
+.sidebar {
+height: 100%;
+width: 250px;
+position: fixed;
+top: 0;
+left: 0;
+background-color:darkcyan;
+padding-top: 20px;
+}
+
+.sidebar h2 {
+color: white;
+text-align: center;
+}
+
+.sidebar ul {
+list-style-type: none;
+padding: 0;
+}
+
+.sidebar ul li {
+padding: 15px;
+}
+
+.sidebar ul li a {
+color: white;
+text-decoration: none;
+display: block;
+}
+.fire{
+display: flex;
+flex-direction: row;
+color:white;
+}
+
+.sidebar ul li a:hover {
+background-color: #575757;
+}
+
+.content {
+margin-left: 260px;
+padding: 20px;
+}
+main {
+flex: 1;
+display: flex;
+flex-direction: column;
+}
+
+.topbar {
+background-color:lightblue;
+padding: 15px 20px;
+display: flex; 
+justify-content:space-around;
+align-items: center;
+
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.topbar h1 {
+margin: 0;
+}
+
+.user-info {
+font-size: 18px;
+color: black;
+}
+p{
+    font-size: x-large;
+    color:lightskyblue;
+}
+.content {
+padding: 20px;
+}
+
+/* @media (max-width: 768px) {
+.sidebar {
+width: 200px;
+}
+
+.content {
+margin-left: 0; 
+}
+
+.toggle-btn {
+display: block; 
+background-color: #333;
+color: white;
+border: none;
+padding: 10px;
+cursor: pointer;
+}
+
+.sidebar.active + .content {
+margin-left: 0; 
+}
+}
+@media (max-width: 480px) {
+.sidebar {
+width: 100%; 
+}
+
+.content {
+margin-left: 0; 
+} */
 table {
-    width: 50%;
+    width: 45%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 50px ;
     font-family: Arial, sans-serif;
+    border-color: #333;
 
 }
 thead {
-    background-color: #f2f2f2;
+    background-color:lightcyan;
 }
 
 th {
     padding: 10px;
-    text-align: left;
-    border-bottom: 2px solid #dddddd;
+    /* text-align: left; */
+    border: 3px solid black;
     color: #333;
+    text-align: center;
 }
 tbody {
-    background-color: #ffffff;
+    background-color:lightcyan;
 }
 
 td {
     padding: 10px;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid black;
 }
 tbody tr:hover {
-    background-color: #f9f9f9;
+    background-color:lightskyblue;
 }
 td button {
     padding: 6px 12px;
@@ -35,21 +152,27 @@ td button {
 }
 
 td button.delete {
-    background-color: #e74c3c;
-    color: white;
+    background-color:lightblue;
+    color:black;
+    text-align: center;
 }
 
 td button.edit {
-    background-color: #3498db;
-    color: white;
+    background-color:lightblue;
+    color:black;
+    text-align: center;
 }
 td button:hover {
     opacity: 0.9;
 }
 #edittable {
+    width:42% ;
     margin: 20px 0;
     padding: 20px;
-    border: 1px solid #dddddd;
+    border: 1px solid black;
     border-radius: 4px;
-    background-color: #f9f9f9;
+    background-color:lightcyan;
+    border: 3px solid black;
+    color: #333;
+    text-align: center;
 }
