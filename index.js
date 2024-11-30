@@ -7,8 +7,8 @@ async function fet_data() {
       <tr>
       <td> ${t.id}</td>
       <td>${t.name}</td>
-      <td>${t.age}</td>
-      <td>${t.address}</td>
+      <td>${t.email}</td>
+      <td>${t.number}</td>
       <td><button onclick="mydelete('${t.id}')">Delete</button></td>
       <td><button onclick="myedit('${t.id}')">edit</button></td>
       </tr>
@@ -29,8 +29,8 @@ async function fet_data() {
   function insertdata() {
     let data = {
       name: document.querySelector("#name").value,
-      age: document.querySelector("#age").value,
-      address: document.querySelector("#address").value,
+      email: document.querySelector("#email").value,
+      number: document.querySelector("#number").value,
     };
     fetch("http://localhost:3000/students", {
       method: "POST",
@@ -47,8 +47,8 @@ async function fet_data() {
     let senddata = `
       <input type="text" value="${redata.id}" id="id1" readonly><br>
       <input type="text" value="${redata.name}" id="name1"><br>
-      <input type="text" value="${redata.age}" id="age1"><br>
-      <input type="text" value="${redata.address}" id="address1"><br>
+      <input type="text" value="${redata.email}" id="email1"><br>
+      <input type="text" value="${redata.number}" id="number1"><br>
       <input type="submit" onclick="finalupdate('${redata.id}')")>`;
   
     document.querySelector("#edittable").innerHTML = senddata;
@@ -56,8 +56,8 @@ async function fet_data() {
   function finalupdate(id) {
       let fdata={
           name:document.querySelector('#name1').value,    
-          age:document.querySelector('#age1').value,   
-          address:document.querySelector('#address1').value,    
+          email:document.querySelector('#email1').value,   
+          number:document.querySelector('#number1').value,    
       }
       fetch(`http://localhost:3000/students/${id}`,{
          method:'PUT',

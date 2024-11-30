@@ -4,8 +4,8 @@ async function fet_data() {
     let final_data=data.map((t)=>`
 <h1>${t.id}</h1>
 <h1>${t.name}</h1>
-<h1>${t.age}</h1>
-<h1>${t.address}</h1>
+<h1>${t.email}</h1>
+<h1>${t.number}</h1>
     
     `).join("")
     document.querySelector('#showdata').innerHTML=final_data

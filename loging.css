@@ -31,16 +31,16 @@ body {
     text-align: center;
 }
 
-.input {
+#input {
     margin-bottom: 15px;
 }
 
-.input label {
+#input label {
     display: block;
     margin-bottom: 5px;
 }
 
-.input input {
+#input input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
