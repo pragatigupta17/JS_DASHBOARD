@@ -1,77 +1,69 @@
-function data() {
+document.querySelector("#signupForm").onsubmit = function (e) {
+  e.preventDefault(); // Prevent form submission
   let username = document.querySelector("#username").value;
   let email = document.querySelector("#email").value;
-  let password = document.querySelector("#pasword").value;
+  let number = document.querySelector("#number").value;
+  let password = document.querySelector("#password").value;
   let confirm_password = document.querySelector("#confirm_password").value;
-  console.log(username, email, password, confirm_password);
+
+  // Reset styles first
+  document.querySelectorAll("input").forEach(input => input.style.borderColor = "#ccc");
+
+  // Check username
   if (username === "") {
-    // window.alert("please enter ur name");
-    document.querySelector("#form").innerHTML = "please enter ur name";
-    let selectname = document.querySelector("# username");
-    selectname.style.borderColor = "red";
-    selectname.style.outlineColor = "red";
+    alert("Please enter your name");
+    document.querySelector("#username").style.borderColor = "red";
     return false;
-  } else if (!(email.includes("@") && email.includes(".com"))) {
-    document.querySelector("#form").innerHTML = "please enter ur email";
-    let selectage = document.querySelector("#email");
-    selectage.style.borderColor = "red";
-    selectage.style.borderColor = "red";
+  }
+
+  // Check email
+  if (!(email.includes("@") && email.includes(".com"))) {
+    alert("Please enter a valid email");
+    document.querySelector("#email").style.borderColor = "red";
     return false;
-  } else if (no.length !== 10) {
-    document.querySelector("#form").innerHTML = "please enter ur  10 digit no";
-    let selectage = document.querySelector("#number");
-    selectage.style.borderColor = "red";
-    selectage.style.borderColor = "red";
+  }
+
+  // Check number
+  if (number.length !== 10) {
+    alert("Please enter a 10-digit phone number");
+    document.querySelector("#number").style.borderColor = "red";
     return false;
   } else if (isNaN(number)) {
-    document.querySelector("#form").innerHTML = "please enter int type no";
-    let selectage = document.querySelector("#number");
-    selectage.style.borderColor = "red";
-    selectage.style.borderColor = "red";
+    alert("Please enter a valid number");
+    document.querySelector("#number").style.borderColor = "red";
     return false;
-  } else if (password === "") {
-    document.querySelector("#form").innerHTML = "please enter ur password";
-    let selectage = document.querySelector("#password");
-    selectage.style.borderColor = "red";
-    selectage.style.borderColor = "red";
+  }
+
+  // Check password
+  if (password === "") {
+    alert("Please enter your password");
+    document.querySelector("#password").style.borderColor = "red";
     return false;
   } else if (
-    !(
-      password.match(/[1234567890]/) &&
-      password.match(/[!@#$%^&*_()-]/) &&
-      password.match(/[qwertyuiopasdfghjklzxcvbnm]/) &&
-      password.match(/[QWERTYUIOPASDFGHJKLZXCVBNM]/)
-    )
+    !password.match(/[0-9]/) ||
+    !password.match(/[!@#$%^&*_()-]/) ||
+    !password.match(/[a-z]/) ||
+    !password.match(/[A-Z]/)
   ) {
-    document.querySelector("#form").innerHTML =
-      "password contains atleast 1 lower, upper,special and number";
-    let selectage = document.querySelector("#password");
-    selectage.style.borderColor = "red";
-    selectage.style.borderColor = "red";
-    return false;
-  } else if (confirm_password === "") {
-    document.querySelector("#form").innerHTML = "please enter ur cpswd";
-    let selectage = document.querySelector("#confirm_password");
-    selectage.style.borderColor = "red";
-    selectage.style.borderColor = "red";
-    confirm_password.match(/[qwertyuiopasdfghjklzxcvbnm]/) &&
-      confirm_password.match(/[QWERTYUIOPASDFGHJKLZXCVBNM]/);
-  }
-  else if(password!==confirm_password){
-    alert("Password do not match.");
-    return;
-    
-  }
-  alert("Signup Successfull");
-  form.reset();
-}
-
-  {
-    document.querySelector("#form").innerHTML =
-      "password contains atleast 1 lower, upper,special and number";
-    let selectage = document.querySelector("#confirm_password");
-    selectage.style.borderColor = "red";
-    selectage.style.borderColor = "red";
+    alert("Password must contain at least one lowercase, uppercase letter, one number, and one special character.");
+    document.querySelector("#password").style.borderColor = "red";
     return false;
   }
 
+  // Check confirm password
+  if (confirm_password === "") {
+    alert("Please confirm your password");
+    document.querySelector("#confirm_password").style.borderColor = "red";
+    return false;
+  }
+
+  if (password !== confirm_password) {
+    alert("Passwords do not match.");
+    return false;
+  }
+
+  // If everything is correct
+  alert("Signup successful!");
+  // Redirect to login page
+  window.location.href = "login.html";
+};

@@ -1,5 +1,5 @@
 async function fet_data() {
-    let res = await fetch("http://localhost:3000/students");
+    let res = await fetch("http://localhost:3000/Employ");
     let data = await res.json();
     let final_data = data
       .map(
@@ -17,10 +17,11 @@ async function fet_data() {
       )
       .join("");
     document.querySelector("#showdata").innerHTML = final_data;
+    console.log("jjjkuahfcjkewc")
   }
   fet_data();
   function mydelete(id) {
-    fetch(`http://localhost:3000/students/${id}`, {
+    fetch(`http://localhost:3000/Employ/${id}`, {
       method: "DELETE",
     }).then((res) => alert("deleted successfully..!!!"));
   }
@@ -32,7 +33,7 @@ async function fet_data() {
       email: document.querySelector("#email").value,
       number: document.querySelector("#number").value,
     };
-    fetch("http://localhost:3000/students", {
+    fetch("http://localhost:3000/Employ", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,7 +43,7 @@ async function fet_data() {
   }
   //update data
   async function myedit(id) {
-    let mydata = await fetch(`http://localhost:3000/students/${id}`);
+    let mydata = await fetch(`http://localhost:3000/Employ/${id}`);
     let redata = await mydata.json();
     let senddata = `
       <input type="text" value="${redata.id}" id="id1" readonly><br>
@@ -59,7 +60,7 @@ async function fet_data() {
           email:document.querySelector('#email1').value,   
           number:document.querySelector('#number1').value,    
       }
-      fetch(`http://localhost:3000/students/${id}`,{
+      fetch(`http://localhost:3000/Employ/${id}`,{
          method:'PUT',
          headers:{
          'Content-Type': 'application/json'
